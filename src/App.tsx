@@ -14,6 +14,7 @@ import ApprovalForm from "./pages/pengajuan-cuti/components/ApprovalForm";
 import StepOne from "./pages/authentication/components/Step1";
 import StepTwo from "./pages/authentication/components/Step2";
 import StepThree from "./pages/authentication/components/Step3";
+import Procedure from "./pages/testing/procedure";
 
 const App = () => {
 	return (
@@ -27,6 +28,7 @@ const App = () => {
 					<Route path="/login" element={<StepOne />} />
 					<Route path="/verifyone" element={<StepTwo />} />
 					<Route path="/verifytwo" element={<StepThree />} />
+					<Route path="/procedure" element={<Procedure />} />
 					<Route path="/informasi-personal" element={<InformasiPersonal />} />
 					<Route path="/laporan" element={<Laporan />} />
 					<Route path="/approval" element={<PengajuanCuti />} />
