@@ -1,5 +1,16 @@
 import React, { useEffect } from "react";
-import { Button, Card, Col, Flex, Form, Image, Input, Row, Table } from "antd";
+import {
+	Button,
+	Card,
+	Col,
+	Flex,
+	Form,
+	Image,
+	Input,
+	Row,
+	Spin,
+	Table,
+} from "antd";
 import { useNavigate } from "react-router-dom";
 import { serviceGetProcedure } from "../../service/api/testing";
 
@@ -50,7 +61,7 @@ const Procedure: React.FC = () => {
 								/>
 
 								<Button color="primary" onClick={handleSubmit}>
-									Cari
+									{loading ? "...LOADING" : "Submit"}
 								</Button>
 							</Form>
 
