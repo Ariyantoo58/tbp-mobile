@@ -6,10 +6,18 @@ import { serviceGetProcedure } from "../../service/api/testing";
 const Procedure: React.FC = () => {
 	const [npk, setNpk] = React.useState<any>(null);
 	const [tahun, setTahun] = React.useState<any>(null);
+	const [loading, setLoading] = React.useState<Boolean>(false);
 
 	const getProcedure = async () => {
-		const response = await serviceGetProcedure(npk, tahun);
-		console.log(response, "responseee");
+		setLoading(true);
+		try {
+			const response = await serviceGetProcedure(npk, tahun);
+			console.log(response, "responseee");
+			setLoading(true);
+		} catch (error) {
+			console.log(error);
+			setLoading(true);
+		}
 	};
 
 	const handleSubmit = () => {
