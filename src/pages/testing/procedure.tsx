@@ -18,16 +18,17 @@ const Procedure: React.FC = () => {
 	const [npk, setNpk] = React.useState<any>(null);
 	const [tahun, setTahun] = React.useState<any>(null);
 	const [loading, setLoading] = React.useState<Boolean>(false);
+	const [res, setRes] = React.useState<any>([]);
 
 	const getProcedure = async () => {
 		setLoading(true);
 		try {
 			const response = await serviceGetProcedure(npk, tahun);
-			console.log(response, "responseee");
-			setLoading(true);
+			setRes(response.data);
+			setLoading(false);
 		} catch (error) {
 			console.log(error);
-			setLoading(true);
+			setLoading(false);
 		}
 	};
 
@@ -85,52 +86,28 @@ const Procedure: React.FC = () => {
 									</tr>
 								</thead>
 								<tbody>
-									{/* {res?.map((e, i) => (
-												<tr key={i}>
-													<td align="center">
-														{e?.JENIS !== null ? e?.JENIS : "-"}
-													</td>
-													<td align="center">
-														{e?.JAN !== null ? e?.JAN : "-"}
-													</td>
-													<td align="center">
-														{e?.FEB !== null ? e?.FEB : "-"}
-													</td>
-													<td align="center">
-														{e?.MAR !== null ? e?.MAR : "-"}
-													</td>
-													<td align="center">
-														{e?.APR !== null ? e?.APR : "-"}
-													</td>
-													<td align="center">
-														{e?.MEI !== null ? e?.MEI : "-"}
-													</td>
-													<td align="center">
-														{e?.JUN !== null ? e?.JUN : "-"}
-													</td>
-													<td align="center">
-														{e?.JUL !== null ? e?.JUL : "-"}
-													</td>
-													<td align="center">
-														{e?.AUG !== null ? e?.AUG : "-"}
-													</td>
-													<td align="center">
-														{e?.SEP !== null ? e?.SEP : "-"}
-													</td>
-													<td align="center">
-														{e?.OKT !== null ? e?.OKT : "-"}
-													</td>
-													<td align="center">
-														{e?.NOV !== null ? e?.NOV : "-"}
-													</td>
-													<td align="center">
-														{e?.DES !== null ? e?.DES : "-"}
-													</td>
-													<td align="center">
-														{e?.TOTAL !== null ? e?.TOTAL : "-"}
-													</td>
-												</tr>
-											))} */}
+									{res?.map((e: any, i: any) => (
+										<tr key={i}>
+											<td align="center">
+												{e?.JENIS !== null ? e?.JENIS : "-"}
+											</td>
+											<td align="center">{e?.JAN !== null ? e?.JAN : "-"}</td>
+											<td align="center">{e?.FEB !== null ? e?.FEB : "-"}</td>
+											<td align="center">{e?.MAR !== null ? e?.MAR : "-"}</td>
+											<td align="center">{e?.APR !== null ? e?.APR : "-"}</td>
+											<td align="center">{e?.MEI !== null ? e?.MEI : "-"}</td>
+											<td align="center">{e?.JUN !== null ? e?.JUN : "-"}</td>
+											<td align="center">{e?.JUL !== null ? e?.JUL : "-"}</td>
+											<td align="center">{e?.AUG !== null ? e?.AUG : "-"}</td>
+											<td align="center">{e?.SEP !== null ? e?.SEP : "-"}</td>
+											<td align="center">{e?.OKT !== null ? e?.OKT : "-"}</td>
+											<td align="center">{e?.NOV !== null ? e?.NOV : "-"}</td>
+											<td align="center">{e?.DES !== null ? e?.DES : "-"}</td>
+											<td align="center">
+												{e?.TOTAL !== null ? e?.TOTAL : "-"}
+											</td>
+										</tr>
+									))}
 								</tbody>
 							</Table>
 						</Card>

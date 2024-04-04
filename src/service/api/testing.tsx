@@ -8,7 +8,7 @@ export const serviceGetProcedure = async (npk: any, tahun: any) => {
 	try {
 		const response = await axios(configurationObject);
 
-		return response;
+		return response.data;
 	} catch (error) {
 		return error;
 	}
