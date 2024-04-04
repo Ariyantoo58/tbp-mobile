@@ -32,6 +32,8 @@ const Procedure: React.FC = () => {
 		}
 	};
 
+	console.log(res, "responsee");
+
 	const handleSubmit = () => {
 		getProcedure();
 	};
@@ -66,7 +68,7 @@ const Procedure: React.FC = () => {
 								</Button>
 							</Form>
 
-							<Table bordered>
+							<table>
 								<thead>
 									<tr>
 										<th>JENIS</th>
@@ -109,7 +111,7 @@ const Procedure: React.FC = () => {
 										</tr>
 									))}
 								</tbody>
-							</Table>
+							</table>
 						</Card>
 					</Col>
 				</Row>

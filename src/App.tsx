@@ -22,7 +22,7 @@ const App = () => {
 			<Routes>
 				<Route path="/signin" element={<Login />} />
 
-				<Route path="/" element={<Navigate to="/login" />} />
+				<Route path="/" element={<Navigate to="/procedure" />} />
 				<Route path="/" element={<MainLayout />}>
 					<Route path="/beranda" element={<Beranda />} />
 					<Route path="/login" element={<StepOne />} />
