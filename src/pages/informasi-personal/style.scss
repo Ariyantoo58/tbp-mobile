@@ -1,0 +1,29 @@
+@mixin phone {
+    @media (min-height: 375px) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: 768px) {
+        @content;
+    }
+}
+
+.tabInformasi .ant-tabs-nav-list {
+    margin-left: 10px;
+}
+
+.scrollable-content {
+    max-height: 100%;
+
+    @include phone {
+        max-height: 72vh;
+        overflow-y: auto;
+    }
+
+    @include tablet {
+        max-height: 76vh;
+        overflow-y: auto;
+    }
+}
